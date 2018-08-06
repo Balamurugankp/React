@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ES6</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js">
+    </script>
+</head>
+<body>
+    
+    <script type="text/babel">
+        //rest parameters
+
+   /*  function test(a,b, ...c){
+
+        console.log("a: ", a)
+        console.log("b: ", b)
+        console.log("c: ", c)
+    }
+        
+    test(100,200,300,400); */
+
+   /*  // scope operator
+    let x={a: 1,b: 2}
+    let y={p: 4, q: 3}
+
+    let z={ ...y, ...x}
+    console.log("z: ", z) */
+// arrow functions
+//1.Conscise syntax
+//2.Better "this"
+
+ /* let add=function(a,b){
+     console.log( a + b);
+ } */
+/* 
+let add= (a,b) => a+b;
+
+console.log(add(10,20));
+
+add(10,20) */ 
+
+/* //constructor
+function Person() {
+    this.i=1;
+    this.j=1;
+
+    console.log("Outside function: ", this);
+    setTimeout(function () {
+        this.i++;
+        console.log("Normal function: ", this);
+        console.log("Normal function: ",this.i );
+    }.bind(this),1000 );
+    //},1000);
+    
+    setTimeout (()=>{
+        this.j++;
+        console.log("Arrow function: ", this);
+        console.log("Arrow function: ", this.j);
+    },2000);
+}
+
+const p= new Person(); */
+
+//ES6 class
+
+class Parent {
+    constructor(a,b){
+        this.a=a;
+        this.b=b;
+    }
+    add(){
+        return this.a + this.b;
+    }
+    sub(){
+        return this.a - this.b;
+    }
+    static PI(){
+        return 3.14;
+    }
+}
+
+class Child extends Parent {
+    constructor(a,b){
+        super(a,b);
+        console.log("this: ", this);
+    }
+    multyply(){
+        return this.a * this.b;
+    }
+    add(){
+        console.log("child's Add: ");
+        return super.add();
+    }
+}
+
+let m= new Child(10,20);
+let y=m.add();
+let z=m.sub();
+let p=Parent.PI();
+
+console.log("y: ",y);
+console.log("z: ",z);
+console.log("p: ",p);
+
+    </script>
+</body>
+</html>
